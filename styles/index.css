@@ -1,0 +1,224 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: #18191a;
+    margin: 0;
+    padding: 40px 0;
+    text-align: center;
+    color: #e4e6eb;
+}
+
+input[type="file"] {
+    margin-bottom: 0;
+    color: #e4e6eb;
+    background: #3a3b3c;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 16px;
+    color: #e4e6eb;
+    margin-bottom: 0;
+    gap: 6px;
+}
+
+#pixelSize {
+    width: 180px;
+    accent-color: #4f8cff;
+    margin: 0 8px 0 0;
+}
+
+#pixelSizeValue {
+    font-weight: bold;
+    color: #4f8cff;
+    margin-left: 4px;
+    font-size: 16px;
+}
+
+button#pixelateBtn,
+button#downloadBtn {
+    background: linear-gradient(90deg, #4f8cff 0%, #2563eb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 9px 22px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 0;
+    margin-right: 4px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+}
+
+button#pixelateBtn:hover,
+button#downloadBtn:hover {
+    background: linear-gradient(90deg, #2563eb 0%, #4f8cff 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(79, 140, 255, 0.13);
+}
+
+#canvas {
+    border: 1.5px solid #35363a;
+    margin-top: 30px;
+    background: #18191a;
+    box-shadow: 0 2px 18px rgba(60, 64, 67, 0.18);
+    max-width: 92vw;
+    max-height: 80vh;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 10px;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    background: #242526;
+    border-radius: 16px;
+    padding: 22px 32px 14px 32px;
+    margin: 0 auto 32px auto;
+    max-width: 950px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+.controls label {
+    margin-bottom: 0;
+}
+
+#pixelRatioLabel {
+    margin: 0 0 0 10px;
+    font-size: 15px;
+    color: #4f8cff;
+    min-width: 180px;
+    text-align: left;
+    align-self: center;
+}
+
+#pixelCount {
+    background: #3a3b3c;
+    color: #e4e6eb;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 5px 8px;
+    font-size: 15px;
+    margin-left: 0;
+    width: 80px;
+}
+
+.main-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.left-panel {
+    flex: 1 1 700px;
+    min-width: 350px;
+}
+
+.palette-panel {
+    background: #232327;
+    border-radius: 14px;
+    padding: 22px 20px 18px 20px;
+    min-width: 220px;
+    max-width: 260px;
+    box-shadow: 0 2px 12px rgba(60, 64, 67, 0.10);
+    color: #e4e6eb;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+}
+
+.palette-panel h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: #4f8cff;
+    text-align: left;
+}
+
+.palette-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 32px;
+    margin-bottom: 8px;
+}
+
+.palette-color {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 2px solid #35363a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: border 0.2s;
+}
+
+.palette-color:hover {
+    border: 2px solid #ff4f4f;
+}
+
+.palette-color-remove {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    background: #ff4f4f;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.palette-add {
+    display: flex;
+    gap: 8px;
+}
+
+#paletteColorInput {
+    flex: 1 1 0;
+    background: #3a3b3c;
+    color: #e4e6eb;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 5px 8px;
+    font-size: 15px;
+}
+
+#addPaletteColorBtn {
+    background: linear-gradient(90deg, #4f8cff 0%, #2563eb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 14px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+#addPaletteColorBtn:hover {
+    background: linear-gradient(90deg, #2563eb 0%, #4f8cff 100%);
+}
+

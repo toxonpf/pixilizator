@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Пикселизатор</title>
+    <link rel="stylesheet" href="styles/media.css">
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+
+<body onload="document.getElementById('pixelSize').addEventListener('input', function() {
+    document.getElementById('pixelSizeValue').textContent = this.value;
+});">
+    <div class="main-layout">
+        <div class="left-panel">
+            <div class="controls">
+                <input type="file" id="fileInput" accept="image/*">
+                <label>
+                    Размер пикселя:
+                    <input type="range" id="pixelSize" value="10" min="1" max="100">
+                    <span id="pixelSizeValue">10</span>
+                </label>
+                <label>
+                    Количество пикселей по ширине:
+                    <input type="number" id="pixelCount" min="1" max="1000" placeholder="0">
+                </label>
+                <button id="pixelateBtn">Пикселизировать</button>
+                <button id="downloadBtn">Скачать</button>
+                <div id="pixelRatioLabel"></div>
+            </div>
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="palette-panel">
+            <h3>Палитра</h3>
+            <div class="palette-list" id="paletteList"></div>
+            <div class="palette-add">
+                <input type="text" id="paletteColorInput" placeholder="#RRGGBB, #RRGGBB...">
+                <button id="addPaletteColorBtn">Добавить</button>
+            </div>  
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
