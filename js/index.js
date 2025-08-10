@@ -10,6 +10,7 @@ const paletteInput = document.getElementById('paletteInput');
 const paletteList = document.getElementById('paletteList');
 const paletteColorInput = document.getElementById('paletteColorInput');
 const addPaletteColorBtn = document.getElementById('addPaletteColorBtn');
+const downloadBtn = document.getElementById('downloadBtn');
 
 let img = new Image();
 let palette = [];
@@ -273,6 +274,17 @@ pixelSizeInput.addEventListener('input', () => {
 });
 
 pixelateBtn.addEventListener('click', pixelize);
+
+downloadBtn.addEventListener('click', () => {
+    // Проверяем, есть ли что скачивать
+    if (!canvas.width || !canvas.height) return;
+    const link = document.createElement('a');
+    link.download = 'pixelized.png';
+    link.href = canvas.toDataURL('image/png');
+    document.body.appendChild(link); // Для Firefox
+    link.click();
+    document.body.removeChild(link);
+});
 
 img.onload = function () {
     canvas.width = img.width;
